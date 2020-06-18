@@ -2,16 +2,31 @@
 
 @section('content')
     {{-- class="col-md-8" --}}
+    @if ( session()->has('message'))
+        <div class="alert alert-success"> {{ session('message') }} </div>
+    @endif
+    
     <div class="card">
         <div class="card-header">Create Category</div>
         <div class="card-body">
-            <form action="">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <form action="{{route('categories.store')}}" method="POST">
+            @csrf
                 <div class="form-group">
                     <label for="cat-name">Name</label>
-                    <input type="text" id="cat-name" class="form-control" placeholder="category name">
+                    <input type="text" id="cat-name" name="name" class="form-control" placeholder="category name">
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-success">Create</button>
+                    <button type="submit" class="btn btn-success">Create</button>
                 </div>
             </form>
         </div>
