@@ -10,7 +10,7 @@
         <div class="card-body">
             <table class="table table-striped table-dark">
                 <thead>
-                    <th>Sl</th>
+                    <th>S/N</th>
                     <th>Name</th>
                 </thead>
                 <tbody>
