@@ -79,10 +79,10 @@
             @auth
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-4 mt-5">
                             <ul class="list-group">
-                            <li class="list-group-item"> <a href="">Post</a> </li>
-                                <li class="list-group-item"> <a href="{{route('categories.index')}}">Category</a> </li>
+                                <li class="list-group-item"> <a href="{{ route('posts.index')}}"> <b>Post</b> </a> </li>
+                                <li class="list-group-item"> <a href="{{route('categories.index')}}"> <b>Category</b> </a> </li>
                             </ul>
                         </div>
                         
