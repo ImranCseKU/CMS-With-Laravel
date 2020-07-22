@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Post\CreatePostRequest;
+use App\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -23,7 +25,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('post.create');
     }
 
     /**
@@ -32,9 +34,25 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreatePostRequest $request)
     {
-        //
+
+        //upload the image to stroage 
+        $post_img = $request->image->store('posts');
+
+        //Create the Post
+        Post::create([
+            'title'=>$request->title,
+            'description'=>$request->description,
+            'content'=>$request->content,
+            'image'=> $post_img
+        ]);
+        
+        //flash message
+        session()->flash('message', 'Post Created Successfully');
+
+        //redirect user
+        return redirect(route('posts.index'));
     }
 
     /**

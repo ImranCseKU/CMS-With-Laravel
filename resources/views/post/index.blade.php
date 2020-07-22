@@ -1,28 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
+{{-- class="col-md-8" --}}
+    @if ( session()->has('message'))
+        <div class="alert alert-success"> {{ session('message') }} </div>
+    @endif
     <div class="d-flex justify-content-end mb-2">
-        <a class="btn btn-success" href="">Add Post</a>
-    </div>
-   
-    <div class="card">
-        <div class="card-header">Post List</div>
-
-        <div class="card-body">
-            <table class="table table-stripe table-dark">
-                <thead>
-                    <tr>
-                        <th>S/N</th>
-                        <th>Post Title</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Hello</td>
-                        <td>Hello world</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div>
+            <a href="{{ route('posts.create') }}" class="btn btn-success">Add Post</a></div>
+        </div>
+        <div class="card">
+            <div class="card-header">Post</div>
+            <div class="card-body">
+                
+            </div>
         </div>
     </div>
+    
 @endsection

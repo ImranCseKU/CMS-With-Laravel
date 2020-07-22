@@ -79,7 +79,7 @@
             @auth
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-4 mt-5">
+                        <div class="col-md-4">
                             <ul class="list-group">
                                 <li class="list-group-item"> <a href="{{ route('posts.index')}}"> <b>Post</b> </a> </li>
                                 <li class="list-group-item"> <a href="{{route('categories.index')}}"> <b>Category</b> </a> </li>
